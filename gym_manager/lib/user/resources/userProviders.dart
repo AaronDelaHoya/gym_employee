@@ -15,7 +15,7 @@ class UserProviders {
 
 
 
-  final _url = 'https://gymmanager-api.now.sh/api/members';
+  final _url = 'https://gymmanager.joseangelpacheco9729.now.sh/api';
   Future<List<User>> fetchTodoList() async {
     print('panggil data');
 
@@ -32,11 +32,12 @@ class UserProviders {
 
   // Peticion POST
   Future createUser(name, email, password) async {
-
-    var tyson = {'name': name, 'email' : email, 'password': password};
+    var tyson = {'name': name, 'email' : email, 'password': password, 'phone':"8718971012"};
     String jsonTyson = jsonEncode(tyson);
-
-    final response = await client.post("$_url/members", headers: {"Content-Type":"application/json"},body: jsonTyson);
+    print(jsonTyson);
+    final response = await client.post("${_url}/auth/sign-up'", headers: {"Content-Type":"application/json"},body: jsonTyson);
+    print(response.statusCode);
+    print(response.body);
     if (response.statusCode == 200) {
       print(response.body);
       return response;
@@ -56,4 +57,21 @@ class UserProviders {
       throw Exception('Failed to update data');
     }
   }
+
+  //var tysonTwo = {'email' : email, 'password': password, 'apiKeyToken':"9d05afe78b0c0eac67a5c56cfd4b154fff09f387a57c2bff838233fc6946a923"};
+  Future signIn(email, password) async {
+    var tyson = {'email' : email, 'password': password, 'apiKeyToken':"9d05afe78b0c0eac67a5c56cfd4b154fff09f387a57c2bff838233fc6946a923" };
+    String jsonTyson = jsonEncode(tyson);
+    print(jsonTyson);
+    final response = await client.post("${_url}/auth/sign-in", headers: {"Content-Type":"application/json"},body: jsonTyson);
+    print(response.statusCode);
+    print(response.body);
+    if (response.statusCode == 200) {
+      print(response.body);
+      return response;
+    } else {
+      throw Exception('Failed to add data');
+    }
+  }
+
 }

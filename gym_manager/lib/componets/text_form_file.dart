@@ -4,17 +4,18 @@ class textFormFile extends StatefulWidget {
 
   final String hintText;
   final bool isPassword;
-  final bool isEmail;
   final TextEditingController controller;
   final Icon icon;
+  final TextInputType inputType;
+  int maxLine = 1;
 
   textFormFile({
     this.hintText,
     this.isPassword = false,
-    this.isEmail = false,
     this.controller,
-    this.icon
-
+    this.icon,
+    this.inputType,
+    this.maxLine
   });
 
   @override
@@ -41,7 +42,8 @@ class _textFormFile extends State<textFormFile>{
           fillColor: Colors.white,
         ),
         obscureText: widget.isPassword ? true : false,
-        keyboardType: widget.isEmail ? TextInputType.emailAddress : TextInputType.text,
+        keyboardType: widget.inputType,
+        maxLines: widget.maxLine,
       ),
     );
   }

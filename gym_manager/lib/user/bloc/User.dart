@@ -9,6 +9,9 @@ class UserBloc {
   saveUser(String name, String email, String password) {
     _repository.saveNewUser(name, email, password);
   }
+  signInUser(String email, String password) {
+    _repository.singInNewUser(email, password);
+  }
 }
 
 final bloc = UserBloc();

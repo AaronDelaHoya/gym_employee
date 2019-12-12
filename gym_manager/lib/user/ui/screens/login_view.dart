@@ -3,8 +3,15 @@ import 'package:gym_manager/componets/bottom_navigationbar.dart';
 import 'package:gym_manager/componets/btn_personal.dart';
 import 'package:gym_manager/componets/topbar.dart';
 import 'package:gym_manager/user/ui/screens/registry_view.dart';
+import 'package:gym_manager/user/bloc/User.dart';
+import 'dart:convert';
 
 class loginView extends StatelessWidget {
+
+
+  var emailController = new TextEditingController();
+  var passwordController = new TextEditingController();
+  Widget next;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -23,12 +30,13 @@ class loginView extends StatelessWidget {
                   height: 55.0,
                   width: 380.0,
                   child: TextField(
+                  controller: emailController,
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.person,
                         color: Colors.black,
                       ),
-                      hintText: 'Ingresa tu nombre',
+                      hintText: 'Ingresa tu email',
                       labelText: 'Nombre',
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.white, width: .1),
@@ -48,9 +56,10 @@ class loginView extends StatelessWidget {
                   height: 55.0,
                   width: 380.0,
                   child: TextField(
+                    controller: passwordController,
                     decoration: InputDecoration(
                       icon: Icon(
-                        Icons.person,
+                        Icons.vpn_key,
                         color: Colors.black,
                       ),
                       hintText: 'Ingresa tu contraeña',
@@ -68,6 +77,9 @@ class loginView extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10.0),
                     child: BtnLogIn(
                         actionTap: (){
+                          /*print('email: ${emailController.text},pass: ${passwordController.text}');
+                          bloc.signInUser(emailController.text.toString(), passwordController.text.toString());*/
+
                           Navigator.push(context, MaterialPageRoute(builder: (context) {
                             return BottomBar();
                           }));
@@ -102,4 +114,6 @@ class loginView extends StatelessWidget {
           )
     );
   }
+
+
 }

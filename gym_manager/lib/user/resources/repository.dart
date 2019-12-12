@@ -7,4 +7,6 @@ class Repository{
   final userProviders = UserProviders();
 
   Future saveNewUser(name, email, password) => userProviders.createUser(name, email, password);
+
+  Future singInNewUser(String email, String password) => userProviders.signIn(email, password);
 }

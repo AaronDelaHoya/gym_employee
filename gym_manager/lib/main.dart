@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_manager/employee/ui/widget/main_view.dart';
+import 'package:gym_manager/shop/ui/screens/body_shop.dart';
 import 'package:gym_manager/user/bloc/User.dart';
 import 'package:gym_manager/user/ui/screens/login_view.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';

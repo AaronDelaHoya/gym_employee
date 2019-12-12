@@ -33,16 +33,6 @@ class BodyShop extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   ProductoView(
-                                      actionTap: () {
-                                        showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return AlertDialog(
-                                                title: Text("Producto"),
-                                                content: Text("Que onda!!!"),
-                                              );
-                                            });
-                                      },
                                       productName: "Camisa",
                                       productDescrip: "Camisa deportiva",
                                       image: "assets/img/filtrarfull.png",

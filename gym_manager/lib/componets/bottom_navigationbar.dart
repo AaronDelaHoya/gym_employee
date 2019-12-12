@@ -1,11 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:gym_manager/schedule/ui/widget/class_view.dart';
-import 'package:gym_manager/schedule/ui/widget/no_user_view.dart';
+import 'package:gym_manager/user/ui/widget/gym_view.dart';
+import 'package:gym_manager/user/ui/widget/no_user_view.dart';
 import 'package:gym_manager/user/info_view.dart';
 import 'package:gym_manager/shop/ui/widget/shop_view.dart';
 import 'package:gym_manager/user/ui/widget/user_view.dart';
 
 class BottomBar extends StatefulWidget{
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -13,15 +16,14 @@ class BottomBar extends StatefulWidget{
   }
 }
 class _BottomBar extends State<BottomBar>{
-  int indexTap = 2;
+  int indexTap = 1;
 
   abrirClase(){
 
   }
 
   final List<Widget> widgetsChildrens = [
-    InfoView(),
-    NoUserClassView(),
+    gymView(),
     UserView(),
     ShopView(),
   ];
@@ -45,10 +47,6 @@ class _BottomBar extends State<BottomBar>{
               onTap: onTapTapped,
               currentIndex: indexTap,
               items: [
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.info_outline,color: Colors.cyan),
-                  title: Text("")
-                ),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.content_paste,color: Colors.cyan),
                     title: Text("")
